@@ -23,11 +23,11 @@ while True:
         return session["age_limit"] == 18
 
     def get_for_seven_days(start_date):
-        url = os.environ['REQUEST_URL2']
+        url = os.environ['REQUEST_URL2']+"?pincode={0}&date={1}".format(os.environ['PIN'],start_date.strftime("%d-%m-%Y"))
         time.sleep(3)
-        params = {"pincode": os.environ['PIN'], "date": start_date.strftime("%d-%m-%Y")}
+        #params = {"pincode": os.environ['PIN'], "date": start_date.strftime("%d-%m-%Y")}
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"}
-        resp = requests.get(url, params=params, headers=headers)
+        resp = requests.get(url, headers=headers)
         data = resp.json()
         return [session for session in get_sessions(data) if is_eighteen_plus(session) and is_available(session)]
 
