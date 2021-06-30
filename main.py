@@ -8,7 +8,7 @@ while True:
     
     start_date = datetime.now()
     
-     def get_for_seven_days(start_date):
+    def get_for_seven_days(start_date):
         try:
             url = os.environ['REQUEST_URL2']+"?pincode={0}&date={1}".format(os.environ['PIN'],start_date.strftime("%d-%m-%Y"))
             time.sleep(3)
