@@ -21,6 +21,10 @@ while True:
             print("something went wrong...restarting the program....")
             handle_excp()
     
+    def handle_excp():
+        get_for_seven_days(start_date)
+        pass
+    
     def create_session_info(center, session):
         return {"name": center["name"],
                 "date": session["date"],
@@ -59,7 +63,3 @@ while True:
         avi_req4 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@aruavidesh&text=Made%20with%20❤%20by%20Ani",headers=headers)
         req3 = requests.get(url=os.getenv('REQUEST_URL3'), headers=headers)
         req4 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@Anirban_Sinha&text=Made%20with%20❤%20by%20Ani",headers=headers)
-       
-    def handle_excp():
-        get_for_seven_days(start_date)
-        pass
