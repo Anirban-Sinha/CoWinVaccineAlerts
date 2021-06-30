@@ -10,7 +10,7 @@ while True:
                 "date": session["date"],
                 "capacity": session["available_capacity"],
                 "age_limit": session["min_age_limit"],
-               "fee_type": session["fee_type"]}
+               "fee_type": center["fee_type"]}
 
     def get_sessions(data):
         for center in data["centers"]:
