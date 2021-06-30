@@ -18,7 +18,7 @@ while True:
                 yield create_session_info(center, session)
 
     def is_available(session):
-        return session["capacity"] > 0
+        return session["capacity"] > 2
 
     def is_eighteen_plus(session):
         return session["age_limit"] == 18
