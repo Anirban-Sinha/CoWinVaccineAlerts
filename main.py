@@ -67,7 +67,7 @@ while True:
             avi_req2 = requests.get(url="http://api.callmebot.com/start.php?source=web&user=@aruavidesh&text=Vaccine%20slots%20available%20book%20fast.&lang=en-US-Standard-B",headers=headers)
             avida_req2 = requests.get(url="http://api.callmebot.com/start.php?source=web&user=@avisaga6&text=Vaccine%20slots%20available%20book%20fast.&lang=en-US-Standard-B",headers=headers)
             req2 = requests.get(url=os.getenv('REQUEST_URL1'), headers=headers)
-except Exception:
+    except Exception:
         print("something went wrong...restarting the program....")
         handle_excp()
         
