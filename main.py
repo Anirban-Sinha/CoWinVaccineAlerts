@@ -48,22 +48,26 @@ while True:
     def create_output(session_info):
         return f"{session_info['date']} - {session_info['name']} ({session_info['capacity']})"
 
-    print(get_for_seven_days(datetime.today()))
-    content = "\n".join([create_output(session_info) for session_info in get_for_seven_days(datetime.today())])
+    try:
+        print(get_for_seven_days(datetime.today()))
+        content = "\n".join([create_output(session_info) for session_info in get_for_seven_days(datetime.today())])
 
-    if not content:
-        c+=1
-        print(c)
-        print("No availability")
-    else:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"}
-        avi_req3 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@aruavidesh&text=Vaccine%20Slots%20Available!!",headers=headers)
-        avi_req4 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@aruavidesh&text=Made%20with%20❤%20by%20Ani",headers=headers)
-        avida_req3 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@avisaga6&text=Vaccine%20Slots%20Available!!",headers=headers)
-        avida_req4 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@avisaga6&text=Made%20with%20❤%20by%20Ani",headers=headers)
-        req3 = requests.get(url=os.getenv('REQUEST_URL3'), headers=headers)
-        req4 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@Anirban_Sinha&text=Made%20with%20❤%20by%20Ani",headers=headers)
-        avi_req2 = requests.get(url="http://api.callmebot.com/start.php?source=web&user=@aruavidesh&text=Vaccine%20slots%20available%20book%20fast.&lang=en-US-Standard-B",headers=headers)
-        avida_req2 = requests.get(url="http://api.callmebot.com/start.php?source=web&user=@avisaga6&text=Vaccine%20slots%20available%20book%20fast.&lang=en-US-Standard-B",headers=headers)
-        req2 = requests.get(url=os.getenv('REQUEST_URL1'), headers=headers)
+        if not content:
+            c+=1
+            print(c)
+            print("No availability")
+        else:
+            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"}
+            avi_req3 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@aruavidesh&text=Vaccine%20Slots%20Available!!",headers=headers)
+            avi_req4 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@aruavidesh&text=Made%20with%20❤%20by%20Ani",headers=headers)
+            avida_req3 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@avisaga6&text=Vaccine%20Slots%20Available!!",headers=headers)
+            avida_req4 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@avisaga6&text=Made%20with%20❤%20by%20Ani",headers=headers)
+            req3 = requests.get(url=os.getenv('REQUEST_URL3'), headers=headers)
+            req4 = requests.get(url="http://api.callmebot.com/text.php?source=web&user=@Anirban_Sinha&text=Made%20with%20❤%20by%20Ani",headers=headers)
+            avi_req2 = requests.get(url="http://api.callmebot.com/start.php?source=web&user=@aruavidesh&text=Vaccine%20slots%20available%20book%20fast.&lang=en-US-Standard-B",headers=headers)
+            avida_req2 = requests.get(url="http://api.callmebot.com/start.php?source=web&user=@avisaga6&text=Vaccine%20slots%20available%20book%20fast.&lang=en-US-Standard-B",headers=headers)
+            req2 = requests.get(url=os.getenv('REQUEST_URL1'), headers=headers)
+except Exception:
+        print("something went wrong...restarting the program....")
+        handle_excp()
         
